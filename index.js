@@ -13,6 +13,10 @@ const PORT = process.env.PORT ?? 8000;
 
 app.use(express.json());
 
+app.get("/health", (req, res) => {
+  return res.json({ message: "Server is Up and running" });
+});
+
 app.use("/user", userRouter);
 app.use("/admin", adminRouter);
 app.use("/seller", sellerRouter);
